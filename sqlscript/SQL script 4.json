@@ -1,8 +1,8 @@
 {
-	"name": "SQL script 3",
+	"name": "SQL script 4",
 	"properties": {
 		"content": {
-			"query": "SELECT * FROM teams;",
+			"query": "SELECT * FROM athletes;",
 			"metadata": {
 				"language": "sql"
 			},
