@@ -1,7 +1,7 @@
 {
-	"name": "coaches",
+	"name": "teams",
 	"properties": {
-		"Name": "coaches",
+		"Name": "teams",
 		"EntityType": "TABLE",
 		"Namespace": {
 			"DatabaseName": "TokyoOlympicDB"
@@ -14,20 +14,7 @@
 		"StorageDescriptor": {
 			"Columns": [
 				{
-					"Name": "Name",
-					"OriginDataTypeName": {
-						"TypeName": "string",
-						"IsComplexType": false,
-						"IsNullable": true,
-						"Length": 8000,
-						"Properties": {
-							"HIVE_TYPE_STRING": "string"
-						}
-					},
-					"DeltaFormatInvalidMessages": []
-				},
-				{
-					"Name": "Country",
+					"Name": "TeamName",
 					"OriginDataTypeName": {
 						"TypeName": "string",
 						"IsComplexType": false,
@@ -41,6 +28,19 @@
 				},
 				{
 					"Name": "Discipline",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8000,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "Country",
 					"OriginDataTypeName": {
 						"TypeName": "string",
 						"IsComplexType": false,
@@ -72,7 +72,7 @@
 				"FormatType": "csv",
 				"SerializeLib": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe",
 				"Properties": {
-					"path": "abfss://tokyo-olympic@tokyoolympicdata602.dfs.core.windows.net/transformdata/coaches/part-00000-tid-8495231494139156683-09d907a2-2122-40f7-914e-483e8bc8ade4-76-1-c000.csv",
+					"path": "abfss://tokyo-olympic@tokyoolympicdata602.dfs.core.windows.net/transformdata/teams/part-00000-tid-6382810625010810410-471595c6-730b-4cc2-9104-0622643e19c3-82-1-c000.csv",
 					"delimiter": ",",
 					"multiLine": "false",
 					"firstRowAsHeader": "true",
@@ -83,7 +83,7 @@
 			},
 			"Source": {
 				"Provider": "ADLS",
-				"Location": "abfss://tokyo-olympic@tokyoolympicdata602.dfs.core.windows.net/transformdata/coaches/part-00000-tid-8495231494139156683-09d907a2-2122-40f7-914e-483e8bc8ade4-76-1-c000.csv",
+				"Location": "abfss://tokyo-olympic@tokyoolympicdata602.dfs.core.windows.net/transformdata/teams/part-00000-tid-6382810625010810410-471595c6-730b-4cc2-9104-0622643e19c3-82-1-c000.csv",
 				"Properties": {
 					"LinkedServiceName": "tokyo-olympic-syn-WorkspaceDefaultStorage",
 					"LocationSetToDatabaseDefault": false
@@ -91,7 +91,7 @@
 			},
 			"Properties": {
 				"textinputformat.record.delimiter": ",",
-				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"compression": "",
 				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
 			},
 			"Compressed": false,
