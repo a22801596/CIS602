@@ -1,7 +1,7 @@
 {
-	"name": "athletes",
+	"name": "medals",
 	"properties": {
-		"Name": "athletes",
+		"Name": "medals",
 		"EntityType": "TABLE",
 		"Namespace": {
 			"DatabaseName": "TokyoOlympicDB"
@@ -14,7 +14,19 @@
 		"StorageDescriptor": {
 			"Columns": [
 				{
-					"Name": "PersonName",
+					"Name": "Rank",
+					"OriginDataTypeName": {
+						"TypeName": "long",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "long"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "Team_Country",
 					"OriginDataTypeName": {
 						"TypeName": "string",
 						"IsComplexType": false,
@@ -27,27 +39,61 @@
 					"DeltaFormatInvalidMessages": []
 				},
 				{
-					"Name": "Country",
+					"Name": "Gold",
 					"OriginDataTypeName": {
-						"TypeName": "string",
+						"TypeName": "long",
 						"IsComplexType": false,
 						"IsNullable": true,
-						"Length": 8000,
 						"Properties": {
-							"HIVE_TYPE_STRING": "string"
+							"HIVE_TYPE_STRING": "long"
 						}
 					},
 					"DeltaFormatInvalidMessages": []
 				},
 				{
-					"Name": "Discipline",
+					"Name": "Silver",
 					"OriginDataTypeName": {
-						"TypeName": "string",
+						"TypeName": "long",
 						"IsComplexType": false,
 						"IsNullable": true,
-						"Length": 8000,
 						"Properties": {
-							"HIVE_TYPE_STRING": "string"
+							"HIVE_TYPE_STRING": "long"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "Bronze",
+					"OriginDataTypeName": {
+						"TypeName": "long",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "long"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "Total",
+					"OriginDataTypeName": {
+						"TypeName": "long",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "long"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "Rank_by_Total",
+					"OriginDataTypeName": {
+						"TypeName": "long",
+						"IsNullable": true,
+						"IsComplexType": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "long"
 						}
 					},
 					"DeltaFormatInvalidMessages": []
@@ -59,7 +105,7 @@
 				"FormatType": "csv",
 				"SerializeLib": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe",
 				"Properties": {
-					"path": "abfss://tokyo-olympic@tokyoolympicdata602.dfs.core.windows.net/transformdata/athletes/part-00000-tid-7787205778690931313-f8476b78-f141-42e8-90c2-d2e4915743e7-74-1-c000.csv",
+					"path": "abfss://tokyo-olympic@tokyoolympicdata602.dfs.core.windows.net/transformdata/medals/part-00000-tid-8909392779134625345-d877198d-ab6d-43e3-9708-f420945fe9c2-80-1-c000.csv",
 					"delimiter": ",",
 					"multiLine": "false",
 					"firstRowAsHeader": "true",
@@ -70,7 +116,7 @@
 			},
 			"Source": {
 				"Provider": "ADLS",
-				"Location": "abfss://tokyo-olympic@tokyoolympicdata602.dfs.core.windows.net/transformdata/athletes/part-00000-tid-7787205778690931313-f8476b78-f141-42e8-90c2-d2e4915743e7-74-1-c000.csv",
+				"Location": "abfss://tokyo-olympic@tokyoolympicdata602.dfs.core.windows.net/transformdata/medals/part-00000-tid-8909392779134625345-d877198d-ab6d-43e3-9708-f420945fe9c2-80-1-c000.csv",
 				"Properties": {
 					"LinkedServiceName": "tokyo-olympic-syn-WorkspaceDefaultStorage",
 					"LocationSetToDatabaseDefault": false
@@ -78,7 +124,7 @@
 			},
 			"Properties": {
 				"textinputformat.record.delimiter": ",",
-				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"compression": "",
 				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
 			},
 			"Compressed": false,
